@@ -1,0 +1,83 @@
+﻿@{
+    ViewBag.Title = "Manutenção dos Usuários";
+}
+
+<h2>@ViewBag.Title</h2>
+<div  ng-controller="UsuarioController">
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item active">
+            <a class="nav-link" data-toggle="tab" href="addUser" role="tab" aria-controls="addUser" aria-selected="true">Adicionar Usuário</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="editUser" role="tab" aria-controls="editUser" aria-selected="false">Editar Usuário</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="deleteUser" role="tab" aria-controls="deleteUser" aria-selected="false">Deletar Usuário</a>
+        </li>
+    </ul>
+
+    <div class="tab-content">
+        <hr />
+        <div id="addUser" class="tab-pane show active" role="tabpanel" aria-labelledby="addUser">
+            <form ng-submit="submitNovo()">
+                <div class="form-group">
+                    <label>Nome:</label>
+                    <input class="form-control" type="text" ng-model="Nome">
+                </div>
+                <div class="form-group">
+                    <label>Sobrenome:</label>
+                    <input class="form-control" type="text" ng-model="Sobrenome">
+                </div>
+                <div class="form-group">
+                    <label>Email:</label>
+                    <input class="form-control" type="text" ng-model="Email">
+                </div>
+                <div class="form-group">
+                    <label>Senha:</label>
+                    <input class="form-control" type="password" ng-model="Senha">
+                </div>
+                <div class="form-group">
+                    <label>Confirmar Senha:</label>
+                    <input class="form-control" type="password" ng-model="ConfirmaSenha">
+                </div>
+                <div class="form-group">
+                    <label>Nível de Acesso:</label>
+                    <select class="form-control" ng-model="NivelAcesso">
+                        <option value="1">Administrador</option>
+                        <option value="2">Usuário Interno</option>
+                        <option value="3" selected>Cliente</option>
+                    </select>
+                </div>
+
+                <div> <input type="submit" value="Submit" /></div>
+            </form>
+        </div>
+
+        <div id="editUser" class="tab-pane fade" role="tabpanel" aria-labelledby="editUser">
+            <form ng-submit="submitEdit()">
+                <div>
+                    <label>Name:</label>
+                    <input type="text" ng-model="Nome" required>
+                </div>
+
+                <div> <input type="submit" value="Submit" /></div>
+            </form>
+        </div>
+
+        <div id="deleteUser" class="tab-pane fade" role="tabpanel" aria-labelledby="deleteUser">
+            <form ng-submit="submitDelete()">
+                <div>
+                    <label>Name:</label>
+                    <input type="text" ng-model="Nome" required>
+                </div>
+
+                <div> <input type="submit" value="Submit" /></div>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+@section Scripts{
+    <script src="~/Scripts/AngularJS/UsuarioController.js"></script>
+}

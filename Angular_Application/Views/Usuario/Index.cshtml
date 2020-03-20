@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "Listagem dos Usuários";
+}
+
+<div ng-app="UsuarioApp">
+    <h1>@ViewBag.Title</h1>
+
+    <div><a class="btn btn-success" href="/Usuario/Editar">Manutenção dos Usuários</a></div>
+
+    <div ng-controller="UsuarioController">
+        <table ng-repeat="Usuario in Usuarios" border="1">
+            <tr>
+                <td>{{Usuario.Nome}}</td>
+                <td>{{Usuario.Sobrenome}}</td>
+                <td>{{Usuario.Email}}</td>
+                <td>{{Usuario.Senha}}</td>
+                <td>{{Usuario.ConfirmaSenha}}</td>
+                <td>{{Usuario.NivelAcesso}}</td>
+                <td>{{Usuario.DataCriacao}}</td>
+            </tr>
+        </table>
+    </div>
+
+</div>
+
+@section Scripts{
+    <script src="~/Scripts/AngularJS/UsuarioController.js"></script>
+}
